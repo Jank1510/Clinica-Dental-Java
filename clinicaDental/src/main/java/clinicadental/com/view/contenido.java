@@ -72,7 +72,8 @@ public class contenido extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         cedulaBuscador = new javax.swing.JTextField();
         btnBuscarCedula = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        salir = new javax.swing.JButton();
+        ver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -155,14 +156,14 @@ public class contenido extends javax.swing.JFrame {
 
         descripcionNew.setBackground(new java.awt.Color(6, 88, 147));
         descripcionNew.setForeground(new java.awt.Color(255, 255, 255));
-        descripcionNew.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "REGULAR", "Item 2", "Item 3", "Item 4" }));
+        descripcionNew.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "REGULAR", "PREVENTIVO", "CORRECTIVO" }));
         descripcionNew.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(251, 228, 163), new java.awt.Color(251, 228, 163), new java.awt.Color(251, 228, 163), new java.awt.Color(251, 228, 163)));
         descripcionNew.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(descripcionNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, -1, -1));
 
         tipoServicioNew.setBackground(new java.awt.Color(6, 88, 147));
         tipoServicioNew.setForeground(new java.awt.Color(255, 255, 255));
-        tipoServicioNew.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIMPIEZA_DENTAL_400", "Item 2", "Item 3", "Item 4" }));
+        tipoServicioNew.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Higiene Dental(profilaxis)_50000$", "Resina de fotocurado_70000$", "Sellante de fisuras y fosetas_30000$", "Fluorizacion_30000$" }));
         tipoServicioNew.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(251, 228, 163), new java.awt.Color(251, 228, 163), new java.awt.Color(251, 228, 163), new java.awt.Color(251, 228, 163)));
         tipoServicioNew.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(tipoServicioNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 170, -1, -1));
@@ -227,9 +228,14 @@ public class contenido extends javax.swing.JFrame {
         actualizar.setBackground(new java.awt.Color(71, 192, 167));
         actualizar.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         actualizar.setForeground(new java.awt.Color(255, 255, 255));
-        actualizar.setText("VER/ACTUALIZAR");
+        actualizar.setText("ACTUALIZAR");
         actualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 120, 30));
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 560, 120, 30));
 
         eliminar.setBackground(new java.awt.Color(71, 192, 167));
         eliminar.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
@@ -260,12 +266,24 @@ public class contenido extends javax.swing.JFrame {
         });
         jPanel1.add(btnBuscarCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 40, 30));
 
-        jButton4.setBackground(new java.awt.Color(71, 192, 167));
-        jButton4.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("SALIR");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 560, 70, 30));
+        salir.setBackground(new java.awt.Color(71, 192, 167));
+        salir.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        salir.setForeground(new java.awt.Color(255, 255, 255));
+        salir.setText("SALIR");
+        salir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 560, 70, 30));
+
+        ver.setBackground(new java.awt.Color(71, 192, 167));
+        ver.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        ver.setForeground(new java.awt.Color(255, 255, 255));
+        ver.setText("VER");
+        ver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ver, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 560, 80, 30));
 
         jLabel1.setBackground(new java.awt.Color(6, 88, 147));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -290,6 +308,14 @@ public class contenido extends javax.swing.JFrame {
     private void btnBuscarCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarCedulaActionPerformed
+
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actualizarActionPerformed
+
+    private void verActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,7 +363,6 @@ public class contenido extends javax.swing.JFrame {
     public javax.swing.JTextField edadNew;
     public javax.swing.JButton eliminar;
     public javax.swing.JTextField fechaRealizacionNew;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -355,7 +380,9 @@ public class contenido extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTextField nombreNew;
     public javax.swing.JButton registrar;
+    public javax.swing.JButton salir;
     public javax.swing.JTable tabla;
     public javax.swing.JComboBox<String> tipoServicioNew;
+    public javax.swing.JButton ver;
     // End of variables declaration//GEN-END:variables
 }

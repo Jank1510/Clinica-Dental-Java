@@ -2,5 +2,8 @@
 /home/jank/NetBeansProjects/clinicaDental/src/main/java/clinicadental/com/app.java
 /home/jank/NetBeansProjects/clinicaDental/src/main/java/clinicadental/com/controller/viewControllerContenido.java
 /home/jank/NetBeansProjects/clinicaDental/src/main/java/clinicadental/com/view/login.java
+/home/jank/NetBeansProjects/clinicaDental/src/main/java/clinicadental/com/controller/viewControllerActualizar.java
 /home/jank/NetBeansProjects/clinicaDental/src/main/java/clinicadental/com/entity/registro.java
 /home/jank/NetBeansProjects/clinicaDental/src/main/java/clinicadental/com/view/contenido.java
+/home/jank/NetBeansProjects/clinicaDental/src/main/java/clinicadental/com/entity/actualizarEntity.java
+/home/jank/NetBeansProjects/clinicaDental/src/main/java/clinicadental/com/view/actualizar.java

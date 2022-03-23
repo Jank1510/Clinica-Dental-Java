@@ -26,16 +26,18 @@ public class viewControllerLogin implements ActionListener {
         this.loginView.setLocationRelativeTo(null);
         this.loginView.setVisible(true);
         this.loginView.iniciarSession.addActionListener(this);
+        this.loginView.cancelar.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        if (ae.getActionCommand().equals("Iniciar Session")) {
         registro jsson=new registro();
         String user = this.loginView.usuario.getText().toString();
         String password = this.loginView.password.getText().toString();
 
-        if (user.equals("jank")) {
-            if (password.equals("123")) {
+        if (user.equals("colombia")) {
+            if (password.equals("12345")) {
                 this.loginView.mensajeError.setText("");
                 this.loginView.setVisible(false);
                 this.contenido.iniciarContenido();
@@ -46,5 +48,10 @@ public class viewControllerLogin implements ActionListener {
         } else {
             this.loginView.mensajeError.setText("Usuario Incorrecto");
         }
+        }
+        if (ae.getActionCommand().equals("Cancelar")) {
+            System.exit(0);
+        }
+        
     }
 }

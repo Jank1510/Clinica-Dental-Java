@@ -21,9 +21,9 @@ public class viewControllerContenido implements ActionListener {
 
     contenido contenido = new contenido();
     registro generarRegistro = new registro();
-    viewControllerActualizar actualizar = new viewControllerActualizar();
+    viewControllerVer actualizar = new viewControllerVer();
 
-    private int registroActualizar;
+    public int registroActualizar;
 
     public void iniciarContenido() {
         this.contenido.setTitle("Clinica Dentista");
@@ -33,6 +33,8 @@ public class viewControllerContenido implements ActionListener {
         this.contenido.eliminar.addActionListener(this);
         this.contenido.btnBuscarCedula.addActionListener(this);
         this.contenido.actualizar.addActionListener(this);
+        this.contenido.ver.addActionListener(this);
+        this.contenido.salir.addActionListener(this);
 
     }
 
@@ -63,8 +65,15 @@ public class viewControllerContenido implements ActionListener {
                 arrayRegistro[5] = generarRegistro.getFechaRealizacion();
                 arrayRegistro[6] = generarRegistro.getDescripcion();
                 arrayRegistro[7] = generarRegistro.getTipoServicio();
-                arrayRegistro[8] = "PRECIO AQUI XD";
-
+                if (generarRegistro.getTipoServicio() == "Higiene Dental(profilaxis)_50000$") {
+                    arrayRegistro[8] = "50.000$";
+                } else {
+                    if (generarRegistro.getTipoServicio() == "Resina de fotocurado_70000$") {
+                        arrayRegistro[8] = "70.000$";
+                    } else {
+                        arrayRegistro[8] = "30.000$";
+                    }
+                }
                 contenido.modelo.addRow(arrayRegistro);
 
                 contenido.nombreNew.setText("");
@@ -110,7 +119,7 @@ public class viewControllerContenido implements ActionListener {
             }
         }
 
-        if (ae.getActionCommand().equals("VER/ACTUALIZAR")) {
+        if (ae.getActionCommand().equals("VER")) {
             registroActualizar = contenido.tabla.getSelectedRow();
 
             if (registroActualizar != -1) {
@@ -132,17 +141,54 @@ public class viewControllerContenido implements ActionListener {
                 String servicio = filaAray.get(7);
                 String precio = filaAray.get(8);
 
-                actualizar.inicializarActualizar();
-                actualizar.enviarDatosActualizar(nombre, apellido, edad, cedula, codigo, fecha, descripcion, servicio, precio);
+                actualizar.inicializarVer();
+                actualizar.enviarDatosVer(nombre, apellido, edad, cedula, codigo, fecha, descripcion, servicio, precio);
 
             } else {
-                JOptionPane.showMessageDialog(null, "Seleccione un registro para actualizar");
+                JOptionPane.showMessageDialog(null, "Seleccione un registro para ver");
 
             }
-
         }
+        if (ae.getActionCommand().equals("ACTUALIZAR")) {
+            int resp = JOptionPane.showConfirmDialog(null, "Al continuar su registro se eliminara y se cargara en las entradas para editarlo", "Alerta!", JOptionPane.YES_NO_OPTION);
+            if (resp == 0) {
+                registroActualizar = contenido.tabla.getSelectedRow();
 
+                if (registroActualizar != -1) {
+                    int columna = contenido.tabla.getColumnCount();
+
+                    int i;
+                    List<String> filaAray = new ArrayList<String>();
+                    for (i = 0; i < columna; i++) {
+                        String valor = (String) contenido.tabla.getValueAt(registroActualizar, i);
+                        filaAray.add(valor);
+                    }
+                    String nombre = filaAray.get(0);
+                    String apellido = filaAray.get(1);
+                    String edad = filaAray.get(2);
+                    String cedula = filaAray.get(3);
+                    String codigo = filaAray.get(4);
+                    String fecha = filaAray.get(5);
+                    String descripcion = filaAray.get(6);
+                    String servicio = filaAray.get(7);
+                    contenido.nombreNew.setText(nombre);
+                    contenido.apellidoNew.setText(apellido);
+                    contenido.edadNew.setText(edad);
+                    contenido.codigoNew.setText(codigo);
+                    contenido.cedulaNew.setText(cedula);
+                    contenido.fechaRealizacionNew.setText(fecha);
+                    contenido.descripcionNew.setSelectedItem(descripcion);
+                    contenido.tipoServicioNew.setSelectedItem(servicio);
+
+                    contenido.modelo.removeRow(registroActualizar);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Seleccione un registro para actualizar");
+
+                }
+            }
+        }
+        if (ae.getActionCommand().equals("SALIR")) {
+            System.exit(0);
+        }
     }
-
-    
 }

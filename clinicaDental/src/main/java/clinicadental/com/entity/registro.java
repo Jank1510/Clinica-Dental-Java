@@ -5,15 +5,12 @@
  */
 package clinicadental.com.entity;
 
-import clinicadental.com.view.contenido;
-
 /**
  *
  * @author jank
  */
 public class registro {
 
-    contenido datosContenido = new contenido();
     
     public String nombre;
     public String apellido;

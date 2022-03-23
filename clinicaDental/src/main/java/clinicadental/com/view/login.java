@@ -32,7 +32,7 @@ public class login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         usuario = new javax.swing.JTextField();
         iniciarSession = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
         mensajeError = new javax.swing.JLabel();
@@ -70,12 +70,12 @@ public class login extends javax.swing.JFrame {
         iniciarSession.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(iniciarSession, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 140, -1));
 
-        jButton2.setBackground(new java.awt.Color(71, 192, 167));
-        jButton2.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Cancelar");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 100, -1));
+        cancelar.setBackground(new java.awt.Color(71, 192, 167));
+        cancelar.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+        cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        cancelar.setText("Cancelar");
+        cancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Noto Sans", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,8 +150,8 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton cancelar;
     public javax.swing.JButton iniciarSession;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
